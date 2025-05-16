@@ -5,14 +5,16 @@ import Home from './pages/Home';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <nav>
         <h1>Supa Smoothies</h1>
         <Link to="/">Home</Link>
-        <Link to="/create">Create New Smoothies</Link>
+        <Link to="/create">Create New Smoothie</Link>
       </nav>
       <Routes>
-        <Route path = "/" element={<Home/>}/>
+        <Route path="/" element={<Home />} />
+        <Route path="/create" element={<Create />} />
+        <Route path="/:id" element={<Update />} />
       </Routes>
     </BrowserRouter>
   )
